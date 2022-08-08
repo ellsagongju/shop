@@ -1,5 +1,6 @@
 import './App.css';
-import { Navbar,Container,Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import bg from './img/small_event4.jpg';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+
+      <div className='main_bg'></div>
+      <div className='main_bg' style={{backgroundImage:'url('+ bg +')'}}></div>
     </div>
   )
 }
