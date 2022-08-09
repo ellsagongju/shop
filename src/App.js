@@ -1,14 +1,20 @@
 import './App.css';
 import { Navbar, Container, Nav,Row,Col } from 'react-bootstrap';
 import bg from './img/small_event4.jpg';
+import 작명 from './data.js';
 
 // 이미지를 쓸 때 public 폴더를 쓸 수 있다.
 // build하게 되면 src는 압축이 되지만
 // public은 압축되지 않기 때문에,
 // '/'절대경로로 쓰면 된다.
 function App() {
+
+  // let [shoes] = useState()
+
   return (
     <div>
+      {/* import 한거 출력 */}
+      { 작명}
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">shop</Navbar.Brand>
