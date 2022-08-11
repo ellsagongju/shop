@@ -3,6 +3,7 @@ import './App.css';
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import bg from './img/small_event4.jpg';
 import shose from './data.js';
+import { Routes, Route,Link} from 'react-router-dom'
 
 function App() {
 
@@ -14,25 +15,36 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">shop</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
+            <Link to="/">home</Link>
+            <Link to="/detail">detail</Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
+
+      <Routes>
+        <Route path="/" element={ <div>메인페이지인데</div>}></Route>
+        <Route path="/detail" element={ 
+          <div>
+            <Row>
+              {
+                shose.map(function (a, i) { 
+                  return (
+                    <Card shoes={shoes[i]} i={i}></Card>
+                  )
+                })
+              }
+            </Row>
+          </div>
+        }></Route>
+        <Route path="/about" element={ <div>어바웃페이지임</div>}></Route>
+      </Routes>
+
       {/* <div className='main_bg'></div> */}
       <div className='main_bg' style={{ backgroundImage: 'url(' + bg + ')' }}></div>
       
-      <Row>
-        {
-          shose.map(function (a, i) { 
-            return (
-              <Card shoes={shoes[i]} i={i}></Card>
-            )
-          })
-        }
-      </Row>
+
     </div>
   )
 }
