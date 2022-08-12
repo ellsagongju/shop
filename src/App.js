@@ -1,27 +1,37 @@
 import React, { useState } from 'react'; 
-import './App.css';
-import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
+import './css/reset.css';
+import './css/App.css';
+import { Navbar, Container, Nav, Row, Col, Pagination } from 'react-bootstrap';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+
 import bg from './img/small_event4.jpg';
 import shose from './data.js';
-import { Routes, Route, Link } from 'react-router-dom'
+
 import Detail from './pages/detail';
 
 function App() {
 
   let [shoes] = useState(shose)
+  let navigate = useNavigate();
 
   return (
     <div>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">shop</Navbar.Brand>
+          <Navbar.Brand href="/">shop</Navbar.Brand>
           <Nav className="me-auto">
-            <Link to="/">home</Link>
-            <Link to="/detail">detail</Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/')}}>home</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/detail')}}>detail</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/detail')}}>Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
+      
+      {/* 뒤로가기 앞으로 가기 네비게이션 */}
+      <Pagination>
+        <Pagination.Prev onClick={() => { navigate(-1)}}/>
+        <Pagination.Next onClick={() => { navigate(1)}}/>
+      </Pagination>
 
 
       <Routes>
@@ -42,7 +52,22 @@ function App() {
         <Route path="/detail" element={ 
           <Detail></Detail>
         }></Route>
-        <Route path="/about" element={ <div>어바웃페이지임</div>}></Route>
+        <Route path="/about" element={<div>어바웃페이지임</div>}></Route>
+
+        {/* 404 페이지를 만들 수 있음 */}
+        <Route path="*" element={<div>여긴 없는 페이지요</div>}></Route>
+
+        {/* 페이지 안에 무언가를 넣고 싶을 때 이렇게 만들어도 되지만 */}
+        {/* <Route path="/about/member" element={<About></About>}></Route>
+        <Route path="/about/location" element={<About></About>}></Route> */}
+        
+        {/* 이게 바로 Nested Route */}
+        <Route path="/about" element={<About></About>}>
+          <Route path="member" element={<div>멤버</div>}></Route>
+          <Route path="location" element={<div>로케이션</div>}></Route>
+        </Route>
+
+        
       </Routes>
 
       
@@ -59,6 +84,15 @@ function Card(props) {
       <span>{props.shoes.content }</span>
       <p>{props.shoes.price }</p>
     </Col>
+  )
+}
+
+function About() {
+  return (
+    <div>
+      <h4>회사정보임</h4>
+      <Outlet></Outlet>
+    </div>
   )
 }
 

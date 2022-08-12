@@ -1,0 +1,16 @@
+
+.product_info_top{
+  display: flex;
+}
+.product_img{
+  width: 40%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px #eee;
+}
+.product_img img{
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+}
+.porduct_text h3{}
