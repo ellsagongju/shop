@@ -3,7 +3,8 @@ import './App.css';
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import bg from './img/small_event4.jpg';
 import shose from './data.js';
-import { Routes, Route,Link} from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
+import Detail from './pages/detail';
 
 function App() {
 
@@ -24,9 +25,9 @@ function App() {
 
 
       <Routes>
-        <Route path="/" element={ <div>메인페이지인데</div>}></Route>
-        <Route path="/detail" element={ 
+        <Route path="/" element={
           <div>
+            <div className='main_bg' style={{ backgroundImage: 'url(' + bg + ')' }}></div>
             <Row>
               {
                 shose.map(function (a, i) { 
@@ -37,12 +38,13 @@ function App() {
               }
             </Row>
           </div>
+         }></Route>
+        <Route path="/detail" element={ 
+          <Detail></Detail>
         }></Route>
         <Route path="/about" element={ <div>어바웃페이지임</div>}></Route>
       </Routes>
 
-      {/* <div className='main_bg'></div> */}
-      <div className='main_bg' style={{ backgroundImage: 'url(' + bg + ')' }}></div>
       
 
     </div>
