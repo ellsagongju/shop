@@ -67,6 +67,11 @@ function App() {
           <Route path="location" element={<div>로케이션</div>}></Route>
         </Route>
 
+        <Route path="/event" element={<Event></Event>}>
+          <Route path="one" element={<div>첫 주문 시 양배추즙 서비스</div>}></Route>
+          <Route path="two" element={<div>생일기념 쿠폰받기</div>}></Route>
+        </Route>
+
         
       </Routes>
 
@@ -91,6 +96,14 @@ function About() {
   return (
     <div>
       <h4>회사정보임</h4>
+      <Outlet></Outlet>
+    </div>
+  )
+}
+function Event() {
+  return (
+    <div>
+      <h4>오늘의 이벤트</h4>
       <Outlet></Outlet>
     </div>
   )
