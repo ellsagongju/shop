@@ -21,8 +21,8 @@ function App() {
           <Navbar.Brand href="/">shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/')}}>home</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/detail')}}>detail</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/detail')}}>Cart</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/detail/:id')}}>detail</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/detail/:id')}}>Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -49,13 +49,13 @@ function App() {
             </Row>
           </div>
          }></Route>
-        <Route path="/detail" element={ 
-          <Detail></Detail>
+        <Route path="/detail/:id" element={ 
+          <Detail shoes={shoes}></Detail>
         }></Route>
         <Route path="/about" element={<div>어바웃페이지임</div>}></Route>
 
         {/* 404 페이지를 만들 수 있음 */}
-        <Route path="*" element={<div>여긴 없는 페이지요</div>}></Route>
+        {/* <Route path="*" element={<div>여긴 없는 페이지요</div>}></Route> */}
 
         {/* 페이지 안에 무언가를 넣고 싶을 때 이렇게 만들어도 되지만 */}
         {/* <Route path="/about/member" element={<About></About>}></Route>
