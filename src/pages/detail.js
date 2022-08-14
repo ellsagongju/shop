@@ -1,7 +1,13 @@
 import '../css/detail.css';
 import { Button } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'; 
+import styled from 'styled-components'
 
+let YellowBtn = styled.button`
+  background : yellow;
+  color: black;
+  padding : 10px;
+`
 
 function Detail(props) { 
 
@@ -21,6 +27,7 @@ function Detail(props) {
                     <Button variant="secondary" size="sm">
                         주문하기
                     </Button>
+                    <YellowBtn>버튼이야</YellowBtn>
                 </div>
             </div>
         </div>
