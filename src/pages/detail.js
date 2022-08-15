@@ -4,9 +4,12 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
 
 let YellowBtn = styled.button`
-  background : yellow;
-  color: black;
+  background : ${props => props.bg};
+  color: ${props => props.bg == 'blue' ? 'white' : 'black'};
   padding : 10px;
+`
+let NewBtn = styled.button(YellowBtn)`
+  background : pink;
 `
 
 function Detail(props) { 
@@ -27,7 +30,8 @@ function Detail(props) {
                     <Button variant="secondary" size="sm">
                         주문하기
                     </Button>
-                    <YellowBtn>버튼이야</YellowBtn>
+                    <YellowBtn bg="blue">버튼이야</YellowBtn>
+                    <YellowBtn bg="orange">버튼이야</YellowBtn>
                 </div>
             </div>
         </div>
