@@ -8,9 +8,9 @@ let YellowBtn = styled.button`
   color: ${props => props.bg == 'blue' ? 'white' : 'black'};
   padding : 10px;
 `
-let NewBtn = styled.button(YellowBtn)`
-  background : pink;
-`
+// let NewBtn = styled.button(YellowBtn)`
+//   background : pink;
+// `
 
 function Detail(props) { 
 
@@ -21,7 +21,7 @@ function Detail(props) {
         <div className='detail_wrap contents_line'>
             <div className="product_info_top">
                 <div className='product_img'>
-                    <img src='https://codingapple1.github.io/shop/shoes1.jpg'></img>
+                    <img src={'https://codingapple1.github.io/shop/shoes'+ (props.shoes[id].id) +'.jpg'}></img>
                 </div>
                 <div className='porduct_text'>
                     <h3>{props.shoes[id].title}</h3>

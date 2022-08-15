@@ -42,7 +42,7 @@ function App() {
               {
                 shose.map(function (a, i) { 
                   return (
-                    <Card shoes={shoes[i]} i={i}></Card>
+                    <Card navigate={navigate} shoes={shoes[i]} i={i}></Card>
                   )
                 })
               }
@@ -83,8 +83,8 @@ function App() {
 
 function Card(props) { 
   return (
-    <Col xs={12} md={4}>
-      <img src={'https://codingapple1.github.io/shop/shoes'+ (props.i+1) +'.jpg'} width='80%' alt="상품"></img>
+    <Col xs={12} md={4} onClick={() => { props.navigate('/detail/'+ (props.i+1) ) }}>
+      <img  src={'https://codingapple1.github.io/shop/shoes'+ (props.i+1) +'.jpg'} width='80%' alt="상품"></img>
       <h3>{props.shoes.title }</h3>
       <span>{props.shoes.content }</span>
       <p>{props.shoes.price }</p>
