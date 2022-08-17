@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'; 
 import styled from 'styled-components'
 import { useEffect } from 'react';
+import React, { useState } from 'react'; 
 
 let YellowBtn = styled.button`
   background : ${props => props.bg};
@@ -15,19 +16,34 @@ let YellowBtn = styled.button`
 
 function Detail(props) { 
 
-    useEffect(() => {
-        for (var i = 0; i < 10000; i++){
-            console.log(1);
-        }
-    })
-
-
     let { id } = useParams();
     console.log(id);
     let 찾은상품 = props.shoes.find(x => x.id == id);
+    let [count, setCount] = useState(0)
+    let [alert, setAlert] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {setAlert(false)},2000)
+        for (var i = 0; i < 10000; i++){
+            console.log(1);
+        }
+    }, [count])
+    // ,[]) 디펜던시라고 부르는데 []안에 작성한 state가 변할 때만 실행된다. 
+
+    
+
+
 
     return (
         <div className='detail_wrap contents_line'>
+            {
+                alert == true
+                ? <div className='alert alert-warning'>
+                    2초이내 구매시 할인
+                </div>
+                : null
+            }
+
             <div className="product_info_top">
                 <div className='product_img'>
                     <img src={'https://codingapple1.github.io/shop/shoes'+ (찾은상품.id) +'.jpg'}></img>
