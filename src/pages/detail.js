@@ -23,9 +23,16 @@ function Detail(props) {
     let [alert, setAlert] = useState(true)
 
     useEffect(() => {
-        setTimeout(() => {setAlert(false)},2000)
+        let a = setTimeout(() => {setAlert(false)},2000)
         for (var i = 0; i < 10000; i++){
             console.log(1);
+        }
+        return () => {
+            clearTimeout(a)
+            // 정리하고 싶은 코드를 넣는다
+            // 재 렌더링되지 않도록 방지하는 것이다.
+            // 만약에 서버에서 데이터 요청하게 되면, 2초정도 시간이 걸린다고 치면, 요청을 계속 받는 버그가 생길 수 있음
+            // 그럴때 return을 사용하는것
         }
     }, [count])
     // ,[]) 디펜던시라고 부르는데 []안에 작성한 state가 변할 때만 실행된다. 

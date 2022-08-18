@@ -1,13 +1,12 @@
-import React, { useState } from 'react'; 
 import './css/reset.css';
 import './css/App.css';
 import { Navbar, Container, Nav, Row, Col, Pagination } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
-
 import bg from './img/small_event4.jpg';
 import shose from './data.js';
-
 import Detail from './pages/detail';
+import axios from 'axios'
+import React, { useState } from 'react'; 
 
 function App() {
 
@@ -47,6 +46,24 @@ function App() {
                 })
               }
             </Row>
+            <button className='what' onClick={() => {
+              // axios.get('url 기입')
+              axios.get('https://codingapple1.github.io/shop/data2.json')
+                .then((result) => {
+                  console.log(result.data)
+
+                  // .then((data) => {
+                  //   console.log(data) 이렇게 쓰면 어디서 왔는지부터 볼 수 있음
+
+                  // .then((data) => {
+                  //   console.log(data.data) 뒤에 .data를 붙여
+                  //   보통은 이런 식으로 데이터만 뽑아서 씀
+                })
+                .catch(() => { 
+                  // 여기는 ajax 요청이 실패했을 때 할 동작을 적는 곳
+                  console.log('실패다인간아')
+                })
+            }}>버튼</button>
           </div>
          }></Route>
         <Route path="/detail/:id" element={ 
