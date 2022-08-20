@@ -8,7 +8,7 @@
 // 여러개의 변수를 내보내려면 변수를 중괄호에 넣어주면 된다.
 
 
-let shose = [
+let data = [
   {
     id : 0,
     title : "White and Black",

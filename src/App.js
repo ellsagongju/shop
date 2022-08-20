@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 
 function App() {
 
-  let [shoes, setShoes] = useState(data)
+  let [shoes,setShoes] = useState(data)
   let navigate = useNavigate();
 
   return (
