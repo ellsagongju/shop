@@ -1,5 +1,5 @@
 import '../css/detail.css';
-import { Button } from 'react-bootstrap';
+import { Button, Tabs, Tab } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'; 
 import styled from 'styled-components'
 import { useEffect } from 'react';
@@ -65,6 +65,23 @@ function Detail(props) {
                     <YellowBtn bg="blue">버튼이야</YellowBtn>
                     <YellowBtn bg="orange">버튼이야</YellowBtn>
                 </div>
+            </div>
+            <div className='product_info_detail'>
+                <Tabs
+                defaultActiveKey="home"
+                id="uncontrolled-tab-example"
+                className="mb-3"
+                >
+                    <Tab eventKey="home" title="Home">
+
+                    </Tab>
+                    <Tab eventKey="profile" title="Profile">
+
+                    </Tab>
+                    <Tab eventKey="contact" title="Contact" disabled>
+
+                    </Tab>
+                </Tabs>
             </div>
         </div>
     )
