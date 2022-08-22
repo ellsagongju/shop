@@ -1,5 +1,5 @@
 import '../css/detail.css';
-import { Button, Tabs, Tab } from 'react-bootstrap';
+import { Button, Nav } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'; 
 import styled from 'styled-components'
 import { useEffect } from 'react';
@@ -68,27 +68,23 @@ function Detail(props) {
                 </div>
             </div>
             <div className='product_info_detail'>
-                <Tabs
-                defaultActiveKey="home"
-                id="uncontrolled-tab-example"
-                className="mb-3"
-                >
-                    <Tab eventKey="home" title="Home" onClick={() => { 
-                        setUseTab(0)
-                    }}>
-
-                    </Tab>
-                    <Tab eventKey="profile" title="Profile" onClick={() => { 
-                        setUseTab(1)
-                    }}>
-
-                    </Tab>
-                    <Tab eventKey="contact" title="Contact" onClick={() => { 
-                        setUseTab(2)
-                    }}>
-
-                    </Tab>
-                </Tabs>
+                <Nav fill variant="tabs" defaultActiveKey="link-0">
+                <Nav.Item>
+                    <Nav.Link eventKey="link-0" onClick={() => { 
+                    setUseTab(0)
+                }}>1</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="link-1" onClick={() => { 
+                    setUseTab(1)
+                }}>2</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="link-2" onClick={() => { 
+                    setUseTab(2)
+                }}>3</Nav.Link>
+                </Nav.Item>
+                </Nav>
                 <TabComnent useTab={useTab}></TabComnent>
             </div>
         </div>
