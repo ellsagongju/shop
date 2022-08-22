@@ -21,6 +21,7 @@ function Detail(props) {
     let 찾은상품 = props.shoes.find(x => x.id == id);
     let [count, setCount] = useState(0)
     let [alert, setAlert] = useState(true)
+    let [useTab, setUseTab] = useState(0)
 
     useEffect(() => {
         let a = setTimeout(() => {setAlert(false)},2000)
@@ -72,19 +73,40 @@ function Detail(props) {
                 id="uncontrolled-tab-example"
                 className="mb-3"
                 >
-                    <Tab eventKey="home" title="Home">
+                    <Tab eventKey="home" title="Home" onClick={() => { 
+                        setUseTab(0)
+                    }}>
 
                     </Tab>
-                    <Tab eventKey="profile" title="Profile">
+                    <Tab eventKey="profile" title="Profile" onClick={() => { 
+                        setUseTab(1)
+                    }}>
 
                     </Tab>
-                    <Tab eventKey="contact" title="Contact" disabled>
+                    <Tab eventKey="contact" title="Contact" onClick={() => { 
+                        setUseTab(2)
+                    }}>
 
                     </Tab>
                 </Tabs>
+                <TabComnent useTab={useTab}></TabComnent>
             </div>
         </div>
     )
 }
+
+function TabComnent(props) {
+    if (props.useTab === 0) {
+        return <div>내용 0</div>
+    }
+        if (props.useTab === 1) {
+        return <div>내용 1</div>
+    }
+        if (props.useTab === 2) {
+        return <div>내용 2</div>
+    }
+ }
+
+
 
 export default Detail;
