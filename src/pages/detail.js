@@ -22,6 +22,7 @@ function Detail(props) {
     let [count, setCount] = useState(0)
     let [alert, setAlert] = useState(true)
     let [useTab, setUseTab] = useState(0)
+    
 
     useEffect(() => {
         let a = setTimeout(() => {setAlert(false)},2000)
@@ -85,7 +86,7 @@ function Detail(props) {
                 }}>3</Nav.Link>
                 </Nav.Item>
                 </Nav>
-                <TabComnent useTab={useTab}></TabComnent>
+                <TabComnent useTab={useTab} shoes={props.shoes}></TabComnent>
             </div>
         </div>
     )
@@ -93,7 +94,7 @@ function Detail(props) {
 
 function TabComnent(props) {
     if (props.useTab === 0) {
-        return <div>내용 0</div>
+        return <div>{ props.shoes[0].title}내용 0</div>
     }
         if (props.useTab === 1) {
         return <div>내용 1</div>
