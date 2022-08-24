@@ -5,6 +5,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import bg from './img/small_event4.jpg';
 import data from './data.js';
 import Detail from './pages/detail';
+import Cart from './pages/Cart';
 import axios from 'axios'
 import React, { useState } from 'react'; 
 
@@ -21,7 +22,7 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/')}}>home</Nav.Link>
             <Nav.Link onClick={() => { navigate('/detail/:id')}}>detail</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/detail/:id')}}>Cart</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/Cart')}}>Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -60,7 +61,9 @@ function App() {
         <Route path="/detail/:id" element={ 
           <Detail shoes={shoes}></Detail>
         }></Route>
+
         <Route path="/about" element={<div>어바웃페이지임</div>}></Route>
+        <Route path="/cart" element={<Cart></Cart>}></Route>
 
         {/* 404 페이지를 만들 수 있음 */}
         {/* <Route path="*" element={<div>여긴 없는 페이지요</div>}></Route> */}
