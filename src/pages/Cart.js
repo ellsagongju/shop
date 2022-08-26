@@ -1,8 +1,14 @@
 import Table from 'react-bootstrap/Table';
+import { useSelector } from 'react-redux';
 
 function Cart() { 
+  let a = useSelector((state) => { return state })
+  console.log(a)
+    // redux를 가져오는 훅
+  console.log(a.stock)
+  return (
+      
 
-    return (
         <div>
                 <Table striped bordered hover>
       <thead>

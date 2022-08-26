@@ -6,9 +6,15 @@ let user = createSlice({
   initialState: 'kim'
 })
 
+let stock = createSlice({
+  name: 'stock',
+  initialState: [10,11,12]
+})
+
 export default configureStore({
   reducer: {
-    user: user.reducer
     // 작명 : 스테이트이름.reducer
+    user: user.reducer,
+    stock : stock.reducer
    }
 }) 
