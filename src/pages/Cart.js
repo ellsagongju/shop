@@ -1,5 +1,6 @@
 import Table from 'react-bootstrap/Table';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeName2 } from './../store.js';
 
 function Cart() { 
   let state = useSelector((state) => { return state })
@@ -7,8 +8,12 @@ function Cart() {
     // redux를 가져오는 훅
   console.log(state.stock)
   console.log(state.cart[0].name)
+
+  let dispatch = useDispatch()
+  // useDispatch 란 store.js로부터 요청을 보내주는 함수
   return (
     <div>
+      { state.user}의 장바구니
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -24,6 +29,11 @@ function Cart() {
                 <td>{state.cart[i].id}</td>
                 <td>{state.cart[i].name}</td>
                 <td>{state.cart[i].count}</td>
+                <td>
+                  <button onClick={() => {
+                    dispatch(changeName2())
+                  }}>+</button>
+                </td>
               </tr>
             )
           }
