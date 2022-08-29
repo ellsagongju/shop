@@ -2,44 +2,34 @@ import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
 
 function Cart() { 
-  let a = useSelector((state) => { return state })
-  console.log(a)
+  let state = useSelector((state) => { return state })
+  console.log(state)
     // redux를 가져오는 훅
-  console.log(a.stock)
+  console.log(state.stock)
+  console.log(state.cart[0].name)
   return (
-      
-
-        <div>
-                <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </Table>
-        </div>
+    <div>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>num</th>
+            <th>상품명</th>
+            <th>재고</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            state.cart.map((a,i) => 
+              <tr key={i}>
+                <td>{state.cart[i].id}</td>
+                <td>{state.cart[i].name}</td>
+                <td>{state.cart[i].count}</td>
+              </tr>
+            )
+          }
+        </tbody>
+      </Table>
+    </div>
     )
 }
 
