@@ -13,7 +13,8 @@ function Cart() {
   // useDispatch 란 store.js로부터 요청을 보내주는 함수
   return (
     <div>
-      { state.user}의 장바구니
+      {state.user.name}의 장바구니
+      {/* state가 array/object인경우 */}
       <Table striped bordered hover>
         <thead>
           <tr>
