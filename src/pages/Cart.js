@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeName2 } from './../store.js';
+import { changeName2, increase } from './../store.js';
 
 function Cart() { 
   let state = useSelector((state) => { return state })
@@ -13,7 +13,11 @@ function Cart() {
   // useDispatch 란 store.js로부터 요청을 보내주는 함수
   return (
     <div>
-      {state.user.name}의 장바구니
+      {state.user.name}의 장바구니 <br/>
+      {state.user.name}의 나이는 {state.user.age}
+      <button onClick={() => { 
+        dispatch(increase())
+      }}>+</button>
       {/* state가 array/object인경우 */}
       <Table striped bordered hover>
         <thead>

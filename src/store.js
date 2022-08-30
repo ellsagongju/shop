@@ -12,9 +12,11 @@ let user = createSlice({
     // },
     changeName2(state) { 
       return {name:'park', age : 20}
-    }
+    },
     // 위와같이 array 자료로 변경하고 싶을 때 방법이다
-
+    increase(state) { 
+      state.age += 1
+    }
     // changeName2(state) { 
     //   return state.name = 'park'
     // }
@@ -22,7 +24,7 @@ let user = createSlice({
   }
 })
 
-export let { changeName2 } = user.actions
+export let { changeName2 , increase} = user.actions
 
 let stock = createSlice({
   name: 'stock',
