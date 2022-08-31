@@ -14,8 +14,8 @@ let user = createSlice({
       return {name:'park', age : 20}
     },
     // 위와같이 array 자료로 변경하고 싶을 때 방법이다
-    increase(state) { 
-      state.age += 1
+    increase(state,a) { 
+      state.age += a.payload
     }
     // changeName2(state) { 
     //   return state.name = 'park'
@@ -23,6 +23,7 @@ let user = createSlice({
     // array자료나 object 자료는 이런식으로 담을 수도 있음
   }
 })
+
 
 export let { changeName2 , increase} = user.actions
 

@@ -16,7 +16,7 @@ function Cart() {
       {state.user.name}의 장바구니 <br/>
       {state.user.name}의 나이는 {state.user.age}
       <button onClick={() => { 
-        dispatch(increase())
+        dispatch(increase(10))
       }}>+</button>
       {/* state가 array/object인경우 */}
       <Table striped bordered hover>
