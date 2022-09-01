@@ -48,4 +48,22 @@ function Cart() {
     )
 }
 
+function Component() {
+  if ( true ) {
+    return <p>참이면 보여줄 HTML</p>;
+  } else {
+    return null;
+  }
+} 
+
+// 이런식으로 쓰면 else 생략가능
+function Component2() {
+  if ( true ) {
+    return <p>참이면 보여줄 HTML</p>;
+  } else {
+    return null;
+  }
+} 
+
+
 export default Cart;
