@@ -36,7 +36,8 @@ function Cart() {
                 <td>{state.cart[i].count}</td>
                 <td>
                   <button onClick={() => {
-                    dispatch(addCount(i))
+                    dispatch(addCount(state.cart[i].id))
+                    // 정렬이 되어버리면 순서가 바뀌기 떄문에 버튼 옆에 있는 id를 불러낸다
                   }}>+</button>
                 </td>
               </tr>

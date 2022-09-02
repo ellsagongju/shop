@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
 import { useEffect } from 'react';
 import React, { useState } from 'react'; 
+import { addItem } from "./../store.js"
+import { useDispatch} from 'react-redux';
 
 let YellowBtn = styled.button`
   background : ${props => props.bg};
@@ -22,6 +24,7 @@ function Detail(props) {
     let [count, setCount] = useState(0)
     let [alert, setAlert] = useState(true)
     let [useTab, setUseTab] = useState(0)
+    let dispatch = useDispatch()
     
 
     useEffect(() => {
@@ -61,7 +64,9 @@ function Detail(props) {
                     <h3>{찾은상품.title}</h3>
                     <span>{찾은상품.content}</span>
                     <p>{찾은상품.price}</p>
-                    <Button variant="secondary" size="sm">
+                    <Button variant="secondary" size="sm" onClick={() => { 
+                        dispatch(addItem({id: (찾은상품.id), name: (찾은상품.title), count: 1 }))
+                    }}>
                         주문하기
                     </Button>
                     <YellowBtn bg="blue">버튼이야</YellowBtn>
