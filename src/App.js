@@ -6,6 +6,8 @@ import bg from './img/small_event4.jpg';
 import data from './data.js';
 import Detail from './pages/detail';
 import Cart from './pages/Cart';
+import Login from './pages/Login';
+import List from './pages/List';
 import axios from 'axios'
 import React, { useState } from 'react'; 
 
@@ -21,8 +23,9 @@ function App() {
           <Navbar.Brand href="/">shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/')}}>home</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/detail/:id')}}>detail</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/Cart')}}>Cart</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/List')}}>detail</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/Cart') }}>Cart</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/Login')}}>Login</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -48,25 +51,32 @@ function App() {
               }
             </Row>
             <button className='what' onClick={() => {
-                axios.get('https://codingapple1.github.io/shop/data2.json').then((data)=>{
-                  let copy = [...shoes, ...data.shoes]
-                  setShoes(copy)
+              axios.get('https://codingapple1.github.io/shop/data2.json').then((결과) => {
+                console.log(결과.data)
+                console.log(shoes)
+
+                let copy = [...shoes, ...결과.data];
+                setShoes(copy);
                 })
                 .catch(()=>{
                   console.log('실패함')
                 })
-            }}>버튼</button>
+            }}>더보기</button>
           </div>
          }></Route>
+         
         <Route path="/detail/:id" element={ 
           <Detail shoes={shoes}></Detail>
         }></Route>
 
+        <Route path="/List" element={<List></List>}></Route>
+        <Route path="/Login" element={ <Login></Login>}></Route>
+
         <Route path="/about" element={<div>어바웃페이지임</div>}></Route>
         <Route path="/cart" element={<Cart></Cart>}></Route>
 
-        {/* 404 페이지를 만들 수 있음 */}
-        {/* <Route path="*" element={<div>여긴 없는 페이지요</div>}></Route> */}
+        {/* 404 페이지 */}
+        <Route path="*" element={<div>여긴 없는 페이지요</div>}></Route>
 
         {/* 페이지 안에 무언가를 넣고 싶을 때 이렇게 만들어도 되지만 */}
         {/* <Route path="/about/member" element={<About></About>}></Route>

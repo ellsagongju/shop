@@ -13,7 +13,7 @@ let cart = createSlice({
   name: 'cart',
   initialState: [
     { id: 0, name: "White and Black", count: 2 },
-    {id : 2, name : "Gray Yordan", count : 1}
+    { id : 2, name : "Gray Yordan", count : 1}
   ],
   reducers: {
     addCount(state, action) { 
@@ -35,6 +35,11 @@ export default configureStore({
     // 작명 : 스테이트이름.reducer
     user: user.reducer,
     stock: stock.reducer,
-    cart : cart.reducer
-   }
-}) 
+    cart: cart.reducer
+  }
+})
+
+
+let login = createSlice({
+})
+
