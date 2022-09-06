@@ -41,5 +41,6 @@ export default configureStore({
 
 
 let login = createSlice({
+  name : "login"
 })
 

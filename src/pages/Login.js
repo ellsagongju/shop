@@ -8,6 +8,7 @@ function Login() {
 	// input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
     const handleInputId = (e) => {
         setInputId(e.target.value)
+        console.log(e)
     }
  
     const handleInputPw = (e) => {
